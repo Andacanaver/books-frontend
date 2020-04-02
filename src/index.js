@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom'
+import { BookProvider } from './contexts/BookContext'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPlus, faChevronLeft, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faPlus, faChevronLeft, faTrashAlt)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <BookProvider>
+      <App />
+    </BookProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
